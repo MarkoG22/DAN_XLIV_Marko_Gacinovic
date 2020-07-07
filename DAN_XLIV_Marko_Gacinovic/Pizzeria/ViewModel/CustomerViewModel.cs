@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -14,24 +15,7 @@ namespace Pizzeria.ViewModel
     {
         CustomerView customer;
 
-        //private tblMenu article;
-        //public tblMenu Article
-        //{
-        //    get { return article; }
-        //    set { article = value;
-        //        OnPropertyChanged("Article");
-        //    }
-        //}
-
-        //private List<tblMenu> articleList;
-        //public List<tblMenu> ArticleList
-        //{
-        //    get { return articleList; }
-        //    set { articleList = value;
-        //        OnPropertyChanged("ArticleList");
-        //    }
-        //}
-
+        // property for the order
         private tblOrder order;
         public tblOrder Order
         {
@@ -41,6 +25,7 @@ namespace Pizzeria.ViewModel
             }
         }
 
+        // properties for calculating total price amount
         private int smallPizza;
         public int SmallPizza
         {
@@ -83,6 +68,7 @@ namespace Pizzeria.ViewModel
             }
         }
 
+        // property for the order status
         private string status;
         public string Status
         {
@@ -90,6 +76,11 @@ namespace Pizzeria.ViewModel
             set { status = value; OnPropertyChanged("Status"); }
         }
 
+        /// <summary>
+        /// constructor for opening window and taking username
+        /// </summary>
+        /// <param name="customerOpen"></param>
+        /// <param name="username"></param>
         public CustomerViewModel(CustomerView customerOpen, string username)
         {
             customer = customerOpen;
@@ -117,7 +108,7 @@ namespace Pizzeria.ViewModel
         private void CloseExecute()
         {
             try
-            {
+            {                
                 customer.Close();
             }
             catch (Exception ex)
@@ -131,6 +122,7 @@ namespace Pizzeria.ViewModel
             return true;
         }
 
+        // command for order button
         private ICommand orderButton;
         public ICommand OrderButton
         {
@@ -144,6 +136,10 @@ namespace Pizzeria.ViewModel
             }            
         }
 
+        /// <summary>
+        /// method for checking order status and reordering
+        /// </summary>
+        /// <returns></returns>
         private bool CanOrderExecute()
         {
             if (status == "Waiting")
@@ -156,6 +152,9 @@ namespace Pizzeria.ViewModel
             }
         }
 
+        /// <summary>
+        /// method for creating the order
+        /// </summary>
         private void OrderExecute()
         {
             try
@@ -175,7 +174,7 @@ namespace Pizzeria.ViewModel
 
                     context.tblOrders.Add(newOrder);
                     context.SaveChanges();                    
-                }
+                }                
             }
             catch (Exception ex)
             {

@@ -27,12 +27,22 @@ namespace Pizzeria.View
             this.DataContext = new CustomerViewModel(this,username);            
         }
 
+        /// <summary>
+        /// method for the textbox validation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NumbersTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        /// <summary>
+        /// methods for calculating the total price amount
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbSmall(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(small.Text) && !string.IsNullOrEmpty(medium.Text) && !string.IsNullOrEmpty(big.Text) && !string.IsNullOrEmpty(jumbo.Text))

@@ -14,6 +14,7 @@ namespace Pizzeria.ViewModel
     {
         MainWindow main;
 
+        // properties for username and password
         private string username;
         public string Username
         {
@@ -27,7 +28,6 @@ namespace Pizzeria.ViewModel
         }
 
         private string password;
-
         public string Password
         {
             get { return password; }
@@ -43,6 +43,7 @@ namespace Pizzeria.ViewModel
             main = mainOpen;
         }
 
+        // command for the login button
         private ICommand logIn;
         public ICommand LogIn
         {
@@ -61,6 +62,9 @@ namespace Pizzeria.ViewModel
             return true;
         }
 
+        /// <summary>
+        /// method for checking username and password and opening the windows
+        /// </summary>
         private void SaveExecute()
         {
             if (JmbgValidation(username) && password == "Gost")
@@ -113,6 +117,11 @@ namespace Pizzeria.ViewModel
             return true;
         }
 
+        /// <summary>
+        /// method for the JMBG validation
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private bool JmbgValidation(string input)
         {
             if (input.Length == 13 && input.All(Char.IsDigit))
