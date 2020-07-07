@@ -9,7 +9,7 @@ using System.Windows;
 using System.Windows.Input;
 
 namespace Pizzeria.ViewModel
-{
+{   
     class MainWindowViewModel : ViewModelBase
     {
         MainWindow main;
@@ -65,7 +65,7 @@ namespace Pizzeria.ViewModel
         {
             if (JmbgValidation(username) && password == "Gost")
             {
-                CustomerView customer = new CustomerView();
+                CustomerView customer = new CustomerView(username);
                 customer.ShowDialog();
             }
             else if (username == "Zaposleni" && password == "Zaposleni")

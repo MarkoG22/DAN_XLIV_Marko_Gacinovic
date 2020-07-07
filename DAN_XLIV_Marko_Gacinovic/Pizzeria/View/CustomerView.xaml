@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pizzeria.View"
         mc:Ignorable="d"
-        Title="CustomerView" Height="450" Width="800">
+        Title="CustomerView" Height="450" Width="500">
     <Grid>
-        
+        <Label Content="Small pizza - 350 din" HorizontalAlignment="Left" Margin="37,68,0,0" VerticalAlignment="Top" Height="36" Width="207" FontSize="18"/>
+        <Label Content="Medium pizza - 500 din" HorizontalAlignment="Left" Margin="37,109,0,0" VerticalAlignment="Top" Width="207" RenderTransformOrigin="0.546,-0.482" Height="38" FontSize="18"/>
+        <Label Content="Big pizza - 700 din" HorizontalAlignment="Left" Margin="37,147,0,0" VerticalAlignment="Top" Width="212" Height="41" FontSize="18"/>
+        <Label Content="Jumbo pizza - 900 din" HorizontalAlignment="Left" Margin="37,188,0,0" VerticalAlignment="Top" Width="207" FontSize="18"/>
+        <TextBox Name="small" HorizontalAlignment="Left" Height="33" Margin="249,68,0,0" TextWrapping="Wrap" Text="{Binding SmallPizza, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="49" FontSize="18" TextChanged="tbSmall" PreviewTextInput="NumbersTextBox"/>
+        <TextBox Name="medium" HorizontalAlignment="Left" Height="33" Margin="249,109,0,0" TextWrapping="Wrap" Text="{Binding MediumPizza, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="49" FontSize="18" TextChanged="tbMedium" PreviewTextInput="NumbersTextBox"/>
+        <TextBox Name="big" HorizontalAlignment="Left" Height="33" Margin="249,147,0,0" TextWrapping="Wrap" Text="{Binding BigPizza, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="49" FontSize="18" TextChanged="tbBig" PreviewTextInput="NumbersTextBox"/>
+        <TextBox Name="jumbo" HorizontalAlignment="Left" Height="34" Margin="249,188,0,0" TextWrapping="Wrap" Text="{Binding JumboPizza, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="49" FontSize="18" TextChanged="tbJumbo" PreviewTextInput="NumbersTextBox"/>
+        <Label Content="Quantity:" HorizontalAlignment="Left" Margin="234,35,0,0" VerticalAlignment="Top" Width="87" Height="28" FontSize="14"/>
+        <Label Content="Total price:" HorizontalAlignment="Left" Margin="146,254,0,0" VerticalAlignment="Top" Width="98" Height="39" FontSize="18"/>
+        <TextBox Name="total" HorizontalAlignment="Left" IsReadOnly="True" Height="50" Margin="249,243,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="128" FontSize="36" TextChanged="tbTotal"/>
+        <Button Content="Logout" Command="{Binding Logout, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left" Margin="262,351,0,0" VerticalAlignment="Top" Width="115" Height="38" FontSize="18"/>
+        <Label Content="Order status:" HorizontalAlignment="Left" Margin="135,308,0,0" VerticalAlignment="Top" Width="109" Height="29" FontSize="16"/>
+        <TextBox Name="status" HorizontalAlignment="Left" IsReadOnly="True" Height="29" Margin="249,308,0,0" TextWrapping="Wrap" Text="{Binding Status, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="128" FontSize="16"/>
+        <Label Content="Din" HorizontalAlignment="Left" Margin="382,239,0,0" VerticalAlignment="Top" Height="56" Width="83" FontSize="36"/>
+        <Button Content="Order" Command="{Binding OrderButton, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="102,351,0,0" VerticalAlignment="Top" Width="115" Height="36" FontSize="18"/>
     </Grid>
 </Window>
